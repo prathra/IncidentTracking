@@ -1,3 +1,55 @@
-<p>
-  incident works!
-</p>
+<div class="container mt-5">
+  <div class="card p-4">
+
+      <form id="incidentForm" (ngSubmit)="onsave()">
+          <div class="mb-3">
+              <label for="title" class="form-label"><i class="bi bi-tag icon"></i> Title:</label>
+              <input type="text"  name="title" [(ngModel)]="incicreate.title" class="form-control" id="title" placeholder="Enter incident title" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="description" class="form-label"><i class="bi bi-card-text icon"></i> Description:</label>
+              <textarea name="description" [(ngModel)]="incicreate.description" class="form-control" id="description" rows="3" placeholder="Enter incident details" required></textarea>
+          </div>
+
+          <div class="row">
+              <div class="col-md-6 mb-3">
+                  <label for="priority" class="form-label"><i class="bi bi-arrow-up-circle icon"></i> Priority:</label>
+                  <select class="form-select" name="priority" [(ngModel)]="incicreate.priority" id="priority" required>
+                      <option value="">Select Priority</option>
+                      <option value="Critical">Critical</option>
+                      <option value="High">High</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Low">Low</option>
+                  </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                  <label for="status" class="form-label"><i class="bi bi-list-check icon"></i> Status:</label>
+                  <select class="form-select" name="status" [(ngModel)]="incicreate.status"  id="status" required>
+                      <option value="">Select Status</option>
+                      <option value="Open">Open</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Resolved">Resolved</option>
+                      <option value="Closed">Closed</option>
+                  </select>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-6 mb-3 d-none" >
+                  <label for="createdBy" class="form-label"><i class="bi bi-person icon"></i> Created By:</label>
+                  <input type="text" name="createdBy" [(ngModel)]="incicreate.createdBy" class="form-control" id="createdBy" placeholder="Enter creator name" required>
+              </div>
+              <div class="col-md-6 mb-3 d-none">
+                  <label for="assignedTo" class="form-label"><i class="bi bi-person-check icon"></i> Assigned To:</label>
+                  <input type="text" name="assignedTo" [(ngModel)]="incicreate.assignedTo" class="form-control" id="assignedTo" placeholder="Enter assignee name (optional)">
+              </div>
+          </div>
+
+          <div class="text-center mt-3">
+              <button type="submit"  class="btn-primary px-4"><i class="bi bi-send"></i> Submit</button>
+              <button type="reset" class="btn btn-secondary px-4"><i class="bi bi-x-circle"></i> Reset</button>
+          </div>
+      </form>
+  </div>
+</div>

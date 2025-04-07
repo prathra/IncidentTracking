@@ -1,3 +1,16 @@
-<p>
-  header works!
-</p>
+<div class="parent">
+<div class="sidebar">
+  <div>
+      <h4>Dashboard</h4>
+      <a routerLink='/dashboard'>Home</a>
+      <a routerLink='/users'>users</a>
+      <a routerLink='/incident'>incident</a>
+  </div>
+  <div>
+      <p>Logged in as: <strong>{{userdata.userName}}</strong></p>
+      <button class="btn btn-danger w-100" type="button" (click)="logOFF()">Log Off</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
+</div>
+

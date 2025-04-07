@@ -1,3 +1,63 @@
-<p>
-  users works!
-</p>
+<div class="card p-3 mb-4">
+  <h5>Add / Edit User</h5>
+  <form id="userForm" [formGroup]="userForm" (ngSubmit)="onsave()">
+      <div class="row">
+          <div class="col-md-6 ">
+              <label for="userName" class="form-label">Username</label>
+              <input type="text" id="userName"  formControlName="userName" class="form-control" required>
+          </div>
+          <div class="col-md-6 ">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" id="userName" formControlName="fullName" class="form-control" required>
+          </div>
+          <div class="col-md-6 ">
+              <label for="emailId" class="form-label">Email</label>
+              <input type="email" id="userName" formControlName="emailId" class="form-control" required>
+          </div>
+          <div class="col-md-6 ">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="userName" formControlName="password" class="form-control" required>
+          </div>
+          <div class="col-md-6 ">
+              <label for="role" class="form-label">Role</label>
+              <select id="userName" formControlName="role" class="form-select">
+                  <option value="Admin">Admin</option>
+                  <option value="User">User</option>
+              </select>
+          </div>
+      </div>
+      @if (userForm.controls['userId'].value != 0) {
+        <button type="button" class="btn btn-primary" (click)="onUpdate()">Update</button>
+      }@else {
+        <button type="submit" class="btn btn-primary">Save User</button>
+      }
+
+
+  </form>
+</div>
+
+<!-- User List -->
+<div class="card p-3">
+  <h5>User List</h5>
+  <div class="card-container">
+      <div class="row" id="userList">
+          <div *ngFor="let item of allUser()" class='col-3'>
+              <div class="card user-card p-3">
+                  <h6> {{item.fullName}} {{item.role}} </h6>
+                  <p>Email: {{item.emailId}} </p>
+                  <p>Username: {{item.userName}} </p>
+
+                  <div class="row">
+                    <div class="col-6">
+                      <button class="btn btn-primary btn-sm" (click)="onupdate(item)">update</button>
+                    </div>
+                    <div class="col-6">
+                      <button class="btn btn-danger btn-sm">Delete</button>
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+      </div>
+  </div>
+</div>
