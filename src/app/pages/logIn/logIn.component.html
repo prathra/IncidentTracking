@@ -1,0 +1,30 @@
+<div class="container">
+
+  <!-- Login Form -->
+  <div class="form-container" id="login-form">
+      <!--
+          WARNING: Using mailto: is INSECURE for login data, especially passwords.
+          This will open the user's email client and requires them to manually send.
+          Data (including password) is sent as plain text. NOT RECOMMENDED.
+      -->
+      <form
+            method="post"
+            enctype="text/plain">
+          <h2>Log In <span class="emoji">🔑</span></h2>
+          <div class="input-group">
+              <label for="login-username">Username / Email <span class="emoji">👤</span></label>
+              <input type="text" id="login-username" [(ngModel)]="logForm.userName" name="Login Username/Email" placeholder="Enter your username or email" required>
+          </div>
+          <div class="input-group">
+              <label for="login-password">Password <span class="emoji">🔒</span></label>
+              <!-- WARNING: PASSWORD SENT IN PLAIN TEXT - HIGHLY INSECURE -->
+              <input type="password" id="login-password" [(ngModel)]="logForm.password" name="Login Password (SENT INSECURELY)" placeholder="Enter your password" required>
+          </div>
+          <button type="button" (click)="onSave()" class="btn">Log In <span class="emoji">🚀</span></button>
+
+      </form>
+  </div>
+
+
+
+</div>
